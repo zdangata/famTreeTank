@@ -12,11 +12,11 @@ class Navbar extends Component {
     render() {
         return (
             <nav className="NavbarItems">
-                <h1 className="navbar-logo">Tanko Family Tree<i className="fab fa-react"></i></h1>
+                <h1 className="navbar-logo"><a href="/">Tanko Family Tree</a><i className="fas fa-tree"></i></h1>
                 <div className="menu-icon" onClick={this.handleClick}>
                     <i className={this.state.clicked ? 'fas fa-times' : 'fas fa-bars'}></i>
                 </div>
-                <ul>
+                <ul className={this.state.clicked ? 'nav-menu active' : 'nav-menu'}>
                     {MenuItems.map((item, index) => {
                         return(
                             <li key={index}>

@@ -18,5 +18,15 @@ export const MenuItems = [
         title: 'Greatgrandchildren',
         url: '#',
         cName: 'nav-links'
+    },
+    {
+        title: 'Modify',
+        url: '#',
+        cName: 'nav-links-mobile'
+    },
+    {
+        title: 'Sign out',
+        url: '#',
+        cName: 'nav-links-mobile'
     }
 ]
