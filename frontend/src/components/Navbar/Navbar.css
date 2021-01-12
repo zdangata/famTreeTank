@@ -13,6 +13,11 @@
     cursor: pointer;
 }
 
+.navbar-title {
+    color: #fff;
+    text-decoration: none;
+}
+
 .fa-react {
     margin-left: 0.5rem;
     font-size: 1.6rem;
@@ -29,8 +34,13 @@
     margin-right: 2rem;
 }
 
+.nav-links{
+    text-decoration: none;
+    color: white;
+}
+
 .nav-links:hover {
-    background-color: #F0EADF;
+    background-color: #EAE7DC;
     border-radius: 4px;
     transition: all 0.2s ease-out;
 }
@@ -45,4 +55,87 @@
 
 .menu-icon {
     display: none;
+}
+
+@media screen and (max-width: 960px) {
+    .NavbarItems {
+        position: relative;
+    }
+
+    .nav-menu {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 500px;
+        position: absolute;
+        top: 80px;
+        left: -100%;
+        opacity: 1;
+        transition: all 0.5s ease;
+    }
+
+    .nav-menu.active {
+        background: #5B5A5A;
+        left: 0;
+        opacity: 1;
+        transition: 0.5s ease;
+        z-index: 1;
+    }
+
+    .nav-links {
+        text-align: center;
+        padding: 2rem;
+        width: 100%;
+        display: table;
+    }
+
+    .nav-links:hover {
+        background-color: #9E9C9C;
+        border-radius: 0;
+    }
+
+    .navbar-logo {
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: translate(25%, 50%);
+    }
+    
+    .menu-icon {
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        transform: translate(-100%, 60%);
+        font-size: 1.8rem;
+        cursor: pointer;
+    }
+
+    .fa-times {
+        color: #fff;
+        font-size: 2rem;
+    }
+
+    .nav-links-mobile {
+        display: block;
+        text-align: center;
+        padding: 1.5rem;
+        margin: 2rem auto;
+        border-radius: 4px;
+        width: 80%;
+        background: #000000;
+        text-decoration: none;
+        color: #fff;
+        font-size: 1.5rem;
+    }
+
+    .nav-links-mobile:hover {
+        background: rgb(90, 57, 57);
+        color:  #5B5A5A;
+        transition: 250ms;
+    }
+
+    Button {
+        display: none;
+    }
 }
