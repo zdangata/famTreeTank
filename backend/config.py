@@ -1,7 +1,4 @@
 import os
-from flask import Flask
-from flask_sqlalchemy import SQLAlchemy
-#import app
 
 SECRET_KEY = os.urandom(32)
 # Grabs the folder where the script runs.
