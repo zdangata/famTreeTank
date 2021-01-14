@@ -30,50 +30,152 @@ class Tanko(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String, nullable=False)
-    dOB = db.Column(db.DateTime, nullable=True)
+    birthday = db.Column(db.Date, nullable=True)
     marital_status = db.Column(db.String, nullable=True)
     children = db.relationship('Children', backref='Tanko', lazy=True)
     bio = db.Column(db.String(1000), nullable=True)
     
-    def __repr__(self):
-        return f'<Tanko {self.id} {self.name} {self.dOB} {self.marital_status} {self.children} {self.bio}>'
+    def __init__(self, name, birthday, marital_status, children, bio):
+        self.name = name
+        self.birthday = date_of_birth
+        self.marital_status = marital_status
+        self.children = children
+        self.bio = bio
+
+    def insert(self):
+        db.session.add(self)
+        db.session.commit()
+
+    def update(self):
+        db.session.commit()
+
+    def delete(self):
+        db.session.delete(self)
+        db.session.commit()
+
+    def format(self):
+        return {
+            'id': self.id,
+            'name': self.name,
+            'date_of_birth': self.birthday,
+            'marital_status': self.marital_status,
+            'children': self.children,
+            'bio': self.bio
+        }
 
 class Children(db.Model):
     __tablename__ = 'Children'
 
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String, nullable=False)
-    dOB = db.Column(db.DateTime, nullable=True)
+    birthday = db.Column(db.Date, nullable=True)
     marital_status = db.Column(db.String, nullable=True)
     children = db.relationship('Grandchildren', backref='Children', lazy=True)
-    parent_id = db.Column(db.Integer, db.ForeignKey('Tanko.id'), nullable=False)
+    parent_id = db.Column(db.Integer, db.ForeignKey('Tanko.id'))
     bio = db.Column(db.String(1000), nullable=True)
 
-    def __repr__(self):
-        return f'<Children {self.id} {self.name} {self.dOB} {self.marital_status} {self.children} {self.parent_id} {self.bio}>'
+    def __init__(self, name, birthday, marital_status, children, parent_id, bio):
+        self.name = name
+        self.birthday = date_of_birth
+        self.marital_status = marital_status
+        self.children = children
+        self.parent_id = parent_id
+        self.bio = bio
+
+    def insert(self):
+        db.session.add(self)
+        db.session.commit()
+
+    def update(self):
+        db.session.commit()
+
+    def delete(self):
+        db.session.delete(self)
+        db.session.commit()
+
+    def format(self):
+        return {
+            'id': self.id,
+            'name': self.name,
+            'date_of_birth': self.birthday,
+            'marital_status': self.marital_status,
+            'children': self.children,
+            'parent_id': self.parent_id,
+            'bio': self.bio
+        }
 
 class Grandchildren(db.Model):
     __tablename__ = 'Grandchildren'
 
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String, nullable=False)
-    dOB = db.Column(db.DateTime, nullable=True)
+    birthday = db.Column(db.Date, nullable=True)
     marital_status = db.Column(db.String, nullable=True)
     children = db.relationship('Greatgrandchildren', backref='GrandChildren', lazy=True)
-    parent_id = db.Column(db.Integer, db.ForeignKey('Children.id'), nullable=False)
+    parent_id = db.Column(db.Integer, db.ForeignKey('Children.id'))
     bio = db.Column(db.String(1000), nullable=True)
 
-    def __repr__(self):
-        return f'<Children {self.id} {self.name} {self.dOB} {self.marital_status} {self.children} {self.parent_id} {self.bio}>'
+    def __init__(self, name, birthday, marital_status, children, parent_id, bio):
+        self.name = name
+        self.birthday = date_of_birth
+        self.marital_status = marital_status
+        self.children = children
+        self.parent_id = parent_id
+        self.bio = bio
+
+    def insert(self):
+        db.session.add(self)
+        db.session.commit()
+
+    def update(self):
+        db.session.commit()
+
+    def delete(self):
+        db.session.delete(self)
+        db.session.commit()
+
+    def format(self):
+        return {
+            'id': self.id,
+            'name': self.name,
+            'date_of_birth': self.birthday,
+            'marital_status': self.marital_status,
+            'children': self.children,
+            'parent_id': self.parent_id,
+            'bio': self.bio
+        }
 
 class Greatgrandchildren(db.Model):
     __tablename__ = 'Greatgrandchildren'
 
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String, nullable=False)
-    dOB = db.Column(db.DateTime, nullable=True)
-    parent_id = db.Column(db.Integer, db.ForeignKey('Grandchildren.id'), nullable=False)
+    birthday = db.Column(db.Date, nullable=True)
+    parent_id = db.Column(db.Integer, db.ForeignKey('Grandchildren.id'))
     bio = db.Column(db.String(1000), nullable=True)
 
-    def __repr__(self):
-        return f'<Children {self.id} {self.name} {self.dOB} {self.parent_id} {self.bio}>'
+    def __init__(self, name, birthday, parent_id, bio):
+        self.name = name
+        self.birthday = date_of_birth
+        self.parent_id = parent_id
+        self.bio = bio
+
+    def insert(self):
+        db.session.add(self)
+        db.session.commit()
+
+    def update(self):
+        db.session.commit()
+
+    def delete(self):
+        db.session.delete(self)
+        db.session.commit()
+
+    def format(self):
+        return {
+            'id': self.id,
+            'name': self.name,
+            'date_of_birthname': self.birthday,
+            'parent_id': self.parent_id,
+            'bio': self.bio
+        }
