@@ -1,0 +1,9 @@
+BACKEND
+Debug 422 error under post child endpoint
+
+FRONTEND
+Add in search bar to navbar and hamburger menu
+Learn to make cards
+
+UX
+Determine how the cards should fit on the screen
